@@ -1,6 +1,33 @@
 
 @import url('https://fonts.googleapis.com/css?family=Raleway:300,700');
 
+/* Estilo para tarjetas tipo perfil (imagen + datos al lado) */
+.profile-card {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 1em;
+}
+
+.profile-content {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 1.5em;
+}
+
+.profile-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: var(--sombra-suave);
+}
+
+.profile-info {
+  flex-grow: 1;
+}
+
 :root {
   --mint: #f3f8d9;
   --text-green: #000000;
