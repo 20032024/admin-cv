@@ -1,1 +1,32 @@
-<p>admin-certificates works!</p>
+<div class="container color-dark">
+
+    <div class="col">
+
+       <p>certificates items</p>
+
+    </div>
+
+</div>
+<div class="container color-light">
+
+    <div class="col">
+
+       <form>
+          <input type="text" class="txt" name="titulo" placeholder="Titulo" [(ngModel)]="myCertificates.name"><br>
+          <input type="text" class="txt" name="year" placeholder="Year (AAAA)" [(ngModel)]="myCertificates.year"><br>
+          <input type="submit" class="btn" value="{{ btnTxt }}" (click)="AgregarCertificates()">
+       </form>
+    </div>
+
+    <div class="col">
+       <p class="life-container" *ngFor="let certificates of certificates;">
+         <span class="button-group-inline">
+          <input type="submit" class="btn" value="Edit" (click)="editCertificates(certificates)">
+          <input type="submit" class="btn eliminar-btn" value="Delete" (click)="deleteCertificates(certificates.id)">
+          </span>
+          {{certificates.name}} – {{certificates.year}}
+          </p>
+
+    </div>
+
+</div>

@@ -1,1 +1,55 @@
-<p>admin-languages works!</p>
+<div class="container color-dark">
+  <div class="col">
+    <p>Languages items</p>
+  </div>
+</div>
+
+<div class="container color-light">
+  <div class="col">
+    <form>
+      <input
+        type="text"
+        class="txt"
+        name="name"
+        placeholder="Language"
+        [(ngModel)]="myLanguage.name"
+        required
+      /><br />
+
+      <input
+        type="text"
+        class="txt"
+        name="level"
+        placeholder="Level for language"
+        [(ngModel)]="myLanguage.level"
+      /><br />
+
+      <input
+        type="submit"
+        class="btn"
+        [value]="btnTxt"
+        (click)="AgregarLanguages()"
+      />
+    </form>
+  </div>
+
+  <div class="col">
+    <p class="life-container" *ngFor="let language of languages">
+      <span class="button-group-inline">
+      <input
+        type="submit"
+        class="btn"
+        value="update"
+        (click)="editLanguage(language)"
+      />
+      <input
+        type="submit"
+        class="btn eliminar-btn"
+        value="delete"
+        (click)="deleteLanguages(language.id)"
+      />
+      {{ language.name }} – {{ language.level }}
+      </span>
+    </p>
+  </div>
+</div>

@@ -1,1 +1,24 @@
-<p>admin-skills works!</p>
+<div class="container color-dark">
+  <div class="col">
+    <p>Skills items</p>
+  </div>
+</div>
+
+<div class="container color-light">
+  <div class="col">
+    <form>
+      <input type="text" class="txt" name="skills" placeholder="Skill" [(ngModel)]="mySkill.skills"><br>
+      <input type="submit" class="btn" [value]="buttonText" (click)="AgregarSkill()">
+    </form>
+  </div>
+
+  <div class="col">
+    <p class="life-container" *ngFor="let skill of skills">
+      <span class="button-group-inline">
+      <input type="submit" class="btn" value="Edit" (click)="editSkill(skill)" />
+      <input type="submit" class="btn eliminar-btn" value="Delete" (click)="deleteSkill(skill.id)" />
+      {{ skill.skills }}  
+      </span>
+    </p>
+  </div>
+</div>
