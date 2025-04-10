@@ -41,11 +41,31 @@ export class AdminEducationComponent {
     }
   }
 
-  deleteEducation(id?: string) {
+deleteEducation(id?: string) {
+  // Mostrar la ventana de confirmación antes de proceder con la eliminación
+  const confirmacion = window.confirm('¿Estás seguro de que deseas eliminar este registro de educación?');
+
+  // Si el usuario confirma la eliminación
+  if (confirmacion && id) {
     this.educationService.deleteEducation(id).then(() => {
       console.log('Deleted education successfully!');
+      // Opcionalmente, puedes actualizar el estado o la vista después de eliminar
+      // this.loadEducation(); // o alguna otra acción para actualizar los datos mostrados
+    }).catch((error) => {
+      console.error('Error deleting education:', error);
+      // Manejar cualquier error que ocurra durante la eliminación
     });
+  } else {
+    // Si el usuario no confirma, simplemente no hacer nada
+    console.log('Deletion cancelled');
   }
+}
+
+
+
+
+
+
 
   editEducation(educacion: any) {
     this.myEducation = { carrera: educacion.carrera, educationHome: educacion.educationHome, startDate: educacion.startDate, endDate: educacion.endDate };

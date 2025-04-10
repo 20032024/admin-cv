@@ -44,11 +44,18 @@ export class AdminLanguagesComponent {
     }
   }
 
-  deleteLanguages(id?: string) {
+deleteLanguages(id?: string) {
+  const confirmacion = window.confirm('¿Estás seguro de que deseas eliminar este lenguaje?');
+  if (confirmacion && id) {
     this.languagesService.deleteLanguage(id).then(() => {
-      console.log('Deleted successfully');
+      console.log('Deleted language successfully!');
+    }).catch((error) => {
+      console.error('Error deleting language:', error);
     });
+  } else {
+    console.log('Deletion cancelled');
   }
+}
 
   editLanguage(language: any) {
     this.myLanguage = { name: language.name, level: language.level };

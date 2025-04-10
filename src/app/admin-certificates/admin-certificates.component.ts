@@ -43,11 +43,31 @@ export class AdminCertificatesComponent {
     }
   }
 
-  deleteCertificates(id?: string) {
+    deleteCertificates(id?: string) {
+  // Verificar si el id está presente antes de continuar
+  if (!id) {
+    console.log('No ID provided for deletion');
+    return;
+  }
+
+  // Mostrar la ventana de confirmación
+  const confirmacion = window.confirm('¿Estás seguro de que deseas eliminar este registro?');
+
+  // Si el usuario confirma la eliminación
+  if (confirmacion) {
     this.certificatesService.deleteCertificates(id).then(() => {
       console.log('Deleted certificate successfully!');
+      // Opcionalmente, puedes actualizar el estado o la vista después de eliminar
+      // this.loadCertificates(); // o alguna otra acción para actualizar los datos mostrados
+    }).catch((error) => {
+      console.error('Error deleting certificate:', error);
+      // Manejar cualquier error que ocurra durante la eliminación
     });
+  } else {
+    // Si el usuario no confirma, simplemente no hacer nada
+    console.log('Deletion cancelled');
   }
+}
 
   editCertificates(certificates: any) {
     this.myCertificates = {

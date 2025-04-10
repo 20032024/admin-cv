@@ -46,11 +46,18 @@ export class AdminWorkexperienceComponent {
     }
   }
 
-  deleteJob(id?: string) {
+deleteJob(id?: string) {
+  const confirmacion = window.confirm('¿Estás seguro de que deseas eliminar esta Work Experience?');
+  if (confirmacion && id) {
     this.workExperienceService.deleteWorkExperience(id).then(() => {
       console.log('Deleted successfully!');
+    }).catch((error) => {
+      console.error('Error deleting job:', error);
     });
+  } else {
+    console.log('Deletion cancelled');
   }
+}
 
   editJob(job: any) {
     this.myWorkExperience = { accomplishment: job.accomplishment, company: job.company,

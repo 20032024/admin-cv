@@ -45,10 +45,25 @@ export class AdminInterestsComponent {
   }
 
   deleteInterests(id?: string) {
+  // Mostrar la ventana de confirmación antes de proceder con la eliminación
+  const confirmacion = window.confirm('¿Estás seguro de que deseas eliminar este interés?');
+
+  // Si el usuario confirma la eliminación
+  if (confirmacion && id) {
     this.interestsService.deleteInterests(id).then(() => {
       console.log('Deleted interest successfully!');
+      // Opcionalmente, puedes actualizar el estado o la vista después de eliminar
+      // this.loadInterests(); // o alguna otra acción para actualizar los datos mostrados
+    }).catch((error) => {
+      console.error('Error deleting interest:', error);
+      // Manejar cualquier error que ocurra durante la eliminación
     });
+  } else {
+    // Si el usuario no confirma, simplemente no hacer nada
+    console.log('Deletion cancelled');
   }
+}
+
 
   editInterests(interest: any) {
     this.myInterest = { interests: interest.interests };  
