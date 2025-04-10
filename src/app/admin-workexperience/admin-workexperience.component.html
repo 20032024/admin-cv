@@ -1,1 +1,32 @@
-<p>admin-workexperience works!</p>
+<div class="container color-dark">
+  <div class="col">
+    <p>work-experience items</p>
+  </div>
+</div>
+
+<div class="container color-light">
+  <div class="col2">
+    <form>
+      <input type="text" class="txt" name="startDate" placeholder="start date (mm/yyyy)" [(ngModel)]="myWorkExperience.startDate"> <br>
+      <input type="text" class="txt" name="endDate" placeholder="end date (mm/yyyy)" [(ngModel)]="myWorkExperience.endDate"> <br>
+      <input type="text" class="txt" name="location" placeholder="location (city, country)" [(ngModel)]="myWorkExperience.location"> <br>
+      <input type="text" class="txt" name="position" placeholder="position" [(ngModel)]="myWorkExperience.position"> <br>
+      <input type="text" class="txt" name="company" placeholder="company" [(ngModel)]="myWorkExperience.company"> <br>
+      <input type="text" class="txt" name="accomplishments" placeholder="accomplishments" [(ngModel)]="myWorkExperience.accomplishment"> <br>
+
+      
+      <input type="submit" class="btn" value="{{ buttonText }}" (click)="AgregarJob()">
+      
+    </form>
+  </div>
+
+  <div class="col2">
+    <p class="life-container" *ngFor="let job of workExperience;">
+      <span class="button-group-inline">
+      <input type="submit" class="btn" value="edit" (click)="editJob(job)" />
+      <input type="submit" class="btn eliminar-btn" value="delete" (click)="deleteJob(job.id)">
+      {{job.company}} - {{job.position}}
+      </span>
+    </p>
+  </div>
+</div>

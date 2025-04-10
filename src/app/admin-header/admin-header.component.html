@@ -1,1 +1,32 @@
-<p>admin-header works!</p>
+<div class="container color-dark">
+  <div class="col">
+    <p>Header items</p>
+  </div>
+</div>
+
+<div class="container color-light">
+  <div class="col">
+    <form>
+      <input type="text" class="txt" name="name" placeholder="Name" [(ngModel)]="myHeader.name" /><br>
+      <input type="text" class="txt" name="goalLife" placeholder="Goal life" [(ngModel)]="myHeader.goalLife" /><br>
+      <input type="text" class="txt" name="photoUrl" placeholder="URL" [(ngModel)]="myHeader.photoUrl" /><br>
+      <input type="text" class="txt" name="email" placeholder="email@domain.com" [(ngModel)]="myHeader.email" /><br>
+      <input type="text" class="txt" name="phoneNumber" placeholder="999-999-9999" [(ngModel)]="myHeader.phoneNumber" /><br>
+      <input type="text" class="txt" name="location" placeholder="City, Country" [(ngModel)]="myHeader.location" /><br>
+      <input type="text" class="txt" name="socialNetwork" placeholder="@facebook" [(ngModel)]="myHeader.socialNetwork" /><br>
+
+      <input type="submit" class="btn" [value]="btnTxt" (click)="AgregarHeader()" />
+    </form>
+  </div>
+
+  <div class="col">
+    <p class="life-container" *ngFor="let h of header">
+      <img [src]="h.photoUrl" alt="Photo" class="profile-img">
+      <span class="button-group-inline"> 
+      <input type="submit" class="btn" value="edit" (click)="editHeader(h)" />
+      <input type="submit" class="btn eliminar-btn" value="delete" (click)="deleteHeader(h.id)" />
+      {{ h.name }} – {{ h.email }} – {{ h.phoneNumber }}
+    </span>
+    </p>
+  </div>
+</div>

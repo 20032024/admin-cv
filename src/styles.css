@@ -1,29 +1,203 @@
-/* You can add global styles to this file, and also import other style files */
+
 @import url('https://fonts.googleapis.com/css?family=Raleway:300,700');
 
+/* Estilo para tarjetas tipo perfil (imagen + datos al lado) */
+.profile-card {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 1em;
+}
+
+.profile-content {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 1.5em;
+}
+
+.profile-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: var(--sombra-suave);
+}
+
+.profile-info {
+  flex-grow: 1;
+}
+
+:root {
+  --mint: #f3f8d9;
+  --text-green: #000000;
+  --transparent-box: rgba(250, 227, 91, 0.718); /* Fondo pastel translúcido */
+  --border-green: rgba(243, 249, 209, 0.3);
+  --hover-green: #18b466;
+  --font-family: 'Raleway', Arial, sans-serif;
+}
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Fondo general */
 body {
-    background: #C8A2D8;
-    padding: 3em;
-    font-family: 'Raleway', 'Arial';
+  background-image: url('assets/gradii-1920x1080 (3).png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  font-family: var(--font-family);
+  color: var(--text-green);
+  padding: 2em;
+  body {
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+}
+
+/* Menú de navegación */
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 2em;
+  padding: 0;
+}
+
+nav ul li a {
+  color: var(--text-green);
+  font-size: 1.2em;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Contenedor principal con efecto translúcido */
+.container {
+  width: 100%;
+  max-width: 650px;
+  margin: 0 auto 2em;
+  padding: 2em;
+  border-radius: 15px;
+  background-color: var(--transparent-box); /* Fondo translúcido */
+  backdrop-filter: blur(8px); /* Vidrio esmerilado */
+  border: 1px solid var(--border-green);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+
+    /* Fondo translúcido tipo vidrio esmerilado */
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+
+}
+
+/* Columnas dentro del container */
+.col {
+  margin-bottom: 1.5em;
+}
+
+/* Título */
+.col p {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 1em;
+}
+
+/* Inputs */
+.txt {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 1em;
+  border: 1px solid var(--border-green);
+  border-radius: 6px;
+  color: var(--text-green);
+  background: rgb(255, 255, 255);
+}
+
+/* Botones */
+input.btn {
+    background-color: #7dcea0; 
+    border: 1px solid #7dcea0;  
     color: #fff;
+    padding: 0.8rem 2.0rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin-top: 0.5rem;
+    margin-right: 0.5rem;
+    width: auto;
+  }
+  
+  input.btn:hover {
+    background-color: #fff;
+    color: #15ff00;
+
+    
+  }
+
+  input.btn:active {
+    background-color: #5bb584; 
+  }
+
+  button.eliminar-btn, input.eliminar-btn {
+    background-color: #ff03038b;
+    color: rgb(255, 255, 255);
+    border: 1px solid #ffffff;
+    padding: 0.6rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
 }
 
-ul {
-    list-style-type: none;
-    margin: 0 0 2em 0;
-    padding: 0;
+
+  button.eliminar-btn:hover, input.eliminar-btn:hover {
+    background-color: darkred;  
+    color: white;
 }
 
-ul li {
-    display: inline;
-    margin-right: 30px;
+/* Tarjetas con los datos renderizados */
+.life-container {
+  font-size: 1em;
+  margin-bottom: 1em;
+  padding: 1em;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid var(--border-green);
+  border-radius: 8px;
+  color: var(--text-green);
 }
 
-ul li a {
-    font-size: 1.5em;
-}
+/* Responsi */
+@media (max-width: 600px) {
+  .container {
+    padding: 1em;
+  }
 
-a {
-    color: #fff;
-    text-decoration: none;
+  .btn {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  nav ul li a {
+    font-size: 1em;
+  }
 }

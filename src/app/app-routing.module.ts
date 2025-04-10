@@ -8,6 +8,7 @@ import { AdminSkillsComponent } from './admin-skills/admin-skills.component';
 import { AdminLanguagesComponent } from './admin-languages/admin-languages.component';
 import { AdminInterestsComponent } from './admin-interests/admin-interests.component';
 
+
 const routes: Routes = [
   { path: 'header', component: AdminHeaderComponent },
   { path: 'workexperience', component: AdminWorkexperienceComponent },
