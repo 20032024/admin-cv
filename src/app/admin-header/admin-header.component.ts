@@ -42,11 +42,25 @@ export class AdminHeaderComponent {
     }
   }
 
-  deleteHeader(id?: string) {
+deleteHeader(id?: string) {
+  // Mostrar la ventana de confirmación antes de proceder con la eliminación
+  const confirmacion = window.confirm('¿Estás seguro de que deseas eliminar este encabezado?');
+
+  // Si el usuario confirma la eliminación
+  if (confirmacion && id) {
     this.headerService.deleteHeader(id).then(() => {
       console.log('Deleted header successfully!');
+      // Opcionalmente, puedes actualizar el estado o la vista después de eliminar
+      // this.loadHeader(); // o alguna otra acción para actualizar los datos mostrados
+    }).catch((error) => {
+      console.error('Error deleting header:', error);
+      // Manejar cualquier error que ocurra durante la eliminación
     });
+  } else {
+    // Si el usuario no confirma, simplemente no hacer nada
+    console.log('Deletion cancelled');
   }
+}
 
   editHeader(header: any) {
     this.myHeader = { email: header.email, goalLife: header.goalLife, location: header.location, name: header.name,

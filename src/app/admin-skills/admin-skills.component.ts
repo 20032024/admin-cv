@@ -44,11 +44,18 @@ export class AdminSkillsComponent {
     }
   }
 
-  deleteSkill(id?: string) {
+deleteSkill(id?: string) {
+  const confirmacion = window.confirm('¿Estás seguro de que deseas eliminar esta skill?');
+  if (confirmacion && id) {
     this.skillsService.deleteSkill(id).then(() => {
       console.log('Deleted skill successfully!');
+    }).catch((error) => {
+      console.error('Error deleting skill:', error);
     });
+  } else {
+    console.log('Deletion cancelled');
   }
+}
 
   editSkill(skill: any) {
     this.mySkill = { skills: skill.skills }; 
