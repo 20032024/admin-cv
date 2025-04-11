@@ -21,6 +21,7 @@
 
   <div class="col">
     <p class="life-container" *ngFor="let h of header">
+      <img [src]="h.photoUrl" alt="Photo" class="profile-img">
       <span class="button-group-inline"> 
       <input type="submit" class="btn" value="edit" (click)="editHeader(h)" />
       <input type="submit" class="btn eliminar-btn" value="delete" (click)="deleteHeader(h.id)" />
